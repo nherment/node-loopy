@@ -2,7 +2,7 @@
 
 var assert = require('assert')
 
-var Loopy = require('../loopy.js')
+var Loopy = require('../Loopy.js')
 
 describe('loopy', function() {
 
