@@ -19,8 +19,7 @@
     "url": "https://github.com/nherment/node-loopy/issues"
   },
   "homepage": "https://github.com/nherment/node-loopy",
-  "dependencies": {
-    "mocha": "^1.18.2",
-    "timeout-scheduler": "^0.1.0"
+  "devDependencies": {
+    "mocha": "1.18.2"
   }
 }

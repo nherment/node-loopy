@@ -1,7 +1,6 @@
 
 var util         = require('util')
 var EventEmitter = require('events').EventEmitter
-var Scheduler    = require('timeout-scheduler')
 
 function Loopy(options) {
   EventEmitter.call(this)
