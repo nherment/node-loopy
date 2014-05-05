@@ -14,7 +14,6 @@ Quick start
     var Loopy = require('loopy')
 
     var loop = new Loopy({
-      timeout: 10000, // timeout after which an async action is considered failed
       interval: 60 * 1000,
       count: -1, // number of loops to run. -1 for infinity
       onError: Loopy.OnError.IGNORE || Loopy.OnError.EXPONENTIAL_BACKOFF || Loopy.OnError.STOP // behaviour when there is an error,
@@ -61,7 +60,7 @@ API
       maxInterval: 60 * 60 * 1000
     })
 
-- ```timeout```: delay in milliseconds after which an async action is considered failed. An 'timeout' event is triggered and
+- ```timeout```: **NOT YET IMPLEMENTED. open an issue to have it** delay in milliseconds after which an async action is considered failed. An 'timeout' event is triggered and
 the subsequent behaviour is defined by the 'onError' configuration option
 - ```interval```: the interval between each async function in milliseconds.
 If the interval is 10 seconds and your async function takes 2 seconds to complete, async function will be called every 12 seconds.
