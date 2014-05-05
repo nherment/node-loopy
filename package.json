@@ -1,0 +1,26 @@
+{
+  "name": "loopy",
+  "version": "0.1.0",
+  "description": "asynchronous loop to properly manage regular function calls",
+  "main": "Loopy.js",
+  "scripts": {
+    "test": "mocha test --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nherment/node-loopy.git"
+  },
+  "keywords": [
+    "loop"
+  ],
+  "author": "Nicolas Herment <nherment@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nherment/node-loopy/issues"
+  },
+  "homepage": "https://github.com/nherment/node-loopy",
+  "dependencies": {
+    "mocha": "^1.18.2",
+    "timeout-scheduler": "^0.1.0"
+  }
+}
