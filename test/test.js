@@ -15,7 +15,6 @@ describe('loopy', function() {
 
     assert.fail('Expected an error')
 
-
   })
 
 
@@ -154,6 +153,49 @@ describe('loopy', function() {
     })
 
     loop.start(true)
+
+  })
+
+
+  it('update interval', function(done) {
+    this.timeout(200)
+    var startTime = Date.now()
+    
+    function delaySinceStart() {
+      return (Date.now() - startTime)
+    }
+
+    var options = {
+      interval: 10,
+      count: 2
+    }
+    var loop = new Loopy(options)
+
+    var tickCalled = 0
+    loop.on('tick', function(callback) {
+      tickCalled ++;
+      var delay = delaySinceStart()
+
+      if(tickCalled === 1) {
+        loop.setInterval(100)
+        assert.ok(delay < 100, delay)
+        assert.ok(delay >= 10, delay)
+      } else if(tickCalled === 2) {
+        assert.ok(delay >= 110, delay)
+      }
+      callback()
+    })
+
+    loop.on('error', function(err) {
+      assert.fail(err)
+    })
+
+    loop.on('stop', function() {
+      assert.equal(tickCalled, 2)
+      done()
+    })
+
+    loop.start()
 
   })
 

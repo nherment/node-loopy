@@ -112,6 +112,10 @@ Loopy.prototype.reset = function() {
   this._count = 0
 }
 
+Loopy.prototype.setInterval = function(interval) {
+  this._interval = interval
+}
+
 Loopy.prototype.start = function(now) {
   this._status = Loopy.Status.STARTED
 
