@@ -157,6 +157,51 @@ describe('loopy', function() {
   })
 
 
+  it('reset interval', function(done) {
+    this.timeout(200)
+    var startTime = Date.now()
+    
+    function delaySinceStart() {
+      return (Date.now() - startTime)
+    }
+
+    var options = {
+      interval: 20,
+      count: 1
+    }
+    var loop = new Loopy(options)
+    
+    var tickCalled = false
+    loop.on('tick', function(callback) {
+      tickCalled = true
+      var delay = delaySinceStart()
+
+      assert.ok(delay > 40, delay)
+
+      callback()
+    })
+
+    loop.on('error', function(err) {
+      assert.fail(err)
+    })
+
+    loop.on('stop', function() {
+      assert.ok(tickCalled)
+      done()
+    })
+
+    loop.start()
+
+    setTimeout(function() {
+      loop.reset()
+      setTimeout(function() {
+        loop.reset()
+      }, 10)
+    }, 10)
+
+  })
+
+    
   it('update interval', function(done) {
     this.timeout(200)
     var startTime = Date.now()
@@ -198,6 +243,5 @@ describe('loopy', function() {
     loop.start()
 
   })
-
 
 })

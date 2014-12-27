@@ -110,6 +110,7 @@ Loopy.prototype.count = function() {
 
 Loopy.prototype.reset = function() {
   this._count = 0
+  this._scheduleNextTick()
 }
 
 Loopy.prototype.setInterval = function(interval) {
