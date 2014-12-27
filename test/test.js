@@ -176,7 +176,7 @@ describe('loopy', function() {
       tickCalled = true
       var delay = delaySinceStart()
 
-      assert.ok(delay > 40, delay)
+      assert.ok(delay >= 40, delay)
 
       callback()
     })
